@@ -5,12 +5,12 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/google/profile_storage/api"
-	"github.com/google/profile_storage/profile"
+	"github.com/go-profiler/api"
+	"github.com/go-profiler/profile"
 )
 
 func main() {
-	f, _ := os.Open("cpu.prof")
+	f, _ := os.Open("alloc.pprof")
 	r, _ := gzip.NewReader(f)
 	d, _ := ioutil.ReadAll(r)
 	profile.Parse(d)

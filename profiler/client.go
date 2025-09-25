@@ -3,7 +3,7 @@ package profiler
 import (
 	"context"
 
-	"gitlab.corp.mail.ru/otvetmailru/profiler/profile"
+	"github.com/go-profiler/profiler/profile"
 )
 
 // Type contains profile types

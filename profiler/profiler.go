@@ -8,9 +8,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/go-profiler/profiler/profile"
 	"github.com/pkg/errors"
-
-	"gitlab.corp.mail.ru/otvetmailru/profiler/profile"
 )
 
 // Profiler collect profiles from application and sends them to storage

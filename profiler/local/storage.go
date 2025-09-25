@@ -6,10 +6,10 @@ import (
 	"path"
 	"time"
 
+	"github.com/go-profiler/profiler"
+	"github.com/go-profiler/profiler/profile"
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
-	"gitlab.corp.mail.ru/otvetmailru/profiler"
-	"gitlab.corp.mail.ru/otvetmailru/profiler/profile"
 )
 
 // Storage stores files in local file systems
@@ -22,7 +22,7 @@ func (s *Storage) Upload(t profiler.Type, p *profile.Profile) error {
 	pd := path.Join(s.BaseDir, string(t))
 	os.MkdirAll(pd, 0755)
 
-	fn := time.Now().Format("02-Jan-06_15-04-05")+".prof"
+	fn := time.Now().Format("02-Jan-06_15-04-05") + ".prof"
 	f, err := os.Create(path.Join(pd, fn))
 	if err != nil {
 		return errors.Wrap(err, "unable to create profile file")
@@ -41,4 +41,3 @@ func (s *Storage) Upload(t profiler.Type, p *profile.Profile) error {
 
 	return gzw.Close()
 }
-

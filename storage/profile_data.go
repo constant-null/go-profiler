@@ -1,6 +1,6 @@
 package storage
 
-import "github.com/google/profile_storage/profile"
+import "github.com/go-profiler/profiler/profile"
 
 type ProfileData interface {
 	StoreTop(app, sampleType string, sample profile.Sample) error

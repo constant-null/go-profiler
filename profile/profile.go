@@ -25,6 +25,9 @@ type Report map[profile.ValueType][]Sample
 func top(p *profile.Profile) Report {
 	repData := make(map[profile.ValueType]map[string]int64)
 	for _, s := range p.Sample {
+		if len(s.Location) == 0 || len(s.Location[0].Line) == 0 {
+			continue
+		}
 		fn := s.Location[0].Line[0].Function.Name
 		for i, t := range p.SampleType {
 			_, ok := repData[*t]
